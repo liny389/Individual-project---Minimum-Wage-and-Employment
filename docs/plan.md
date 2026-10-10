@@ -72,6 +72,29 @@ Does the 2.76-FTE DID result survive modern inference? Two parts:
 Motivation: Neumark & Wascher (2000) argued the paper's conventional SEs were
 too small; this is the natural robustness question.
 
+### Results (implemented, `src/extension.py`)
+
+Cluster-robust SEs (Table 4 balanced sample, N = 351):
+
+| Model | Regressor | coef | SE chain | t chain | SE region | t region |
+|---|---|---|---|---|---|---|
+| (i) | NJ dummy | 2.28 | 1.11 | 2.05 | 1.40 | 1.62 |
+| (ii) | NJ dummy | 2.28 | 1.16 | 1.97 | 1.53 | 1.49 |
+| (iii) | wage gap | 17.05 | 8.76 | 1.95 | 4.79 | 3.56 |
+| (iv) | wage gap | 16.36 | 8.88 | 1.84 | 4.94 | 3.31 |
+| (v) | wage gap | 13.88 | 9.09 | 1.53 | 3.80 | 3.65 |
+
+Permutation test (headline DID, balanced N = 384): observed DID = 2.75;
+null sd = 1.15; two-sided p = **0.017** (P(DID* ≥ 2.75) = 0.0096).
+
+Key interpretation points (for the report):
+- Region clustering of the NJ dummy collapses to the state level (the dummy is
+  constant within each region), so its t drops to 1.62 — the Donald & Lang
+  "few clusters" point; the GAP spec, which varies within region, stays
+  significant (t ≈ 3.6).
+- The store-level permutation test validates the DID under iid exchangeability
+  (p = 0.017) but does not, by itself, repair the few-clusters concern.
+
 ## Open items / known discrepancies (to resolve during implementation)
 
 These are deliberate "explain the difference" items for the report, not bugs:
@@ -85,9 +108,12 @@ These are deliberate "explain the difference" items for the report, not bugs:
    missing employment component as 0 / use "available" components). This is a
    known data-version difference in the Card–Krueger public dataset.
 
-2. **Share of NJ stores at $5.05 in wave 2 = 89% vs paper's ~85%.** Over
-   non-missing `WAGE_ST2` we get 89.0%; the paper's Table 2 shows ~85%. Likely
-   a denominator/rounding difference; verify during Table 2 implementation.
+2. **Share of NJ stores at $5.05 in wave 2 = 89% vs paper's ~85%.**
+   **Resolved.** The numerator is identical (283 NJ stores at exactly $5.05);
+   the difference is the denominator. 283/318 (wage-reporting stores) = 89.0%,
+   while 283/331 (all NJ stores) = 85.5%, which matches the paper's ~85%.
+   Table 2 reports the all-stores convention (85.5%); Figure 1's histogram is
+   naturally over wage-reporting stores (89.0%).
 
 3. **Table 4 GAP coefficients ~9% higher than the paper** (our 17.05/16.36/13.88
    vs paper 15.65/14.92/11.91), while the SEs match almost exactly (6.09/6.24/
@@ -97,6 +123,13 @@ These are deliberate "explain the difference" items for the report, not bugs:
    was constructed from a slightly different wage series than this `public.csv`.
    Mean GAP among NJ matches (0.105 vs 0.11). Same economic conclusion
    (positive, no decline); document the source in the report.
+
+4. **Table 4 dependent-variable mean = −0.030 vs paper's −0.237** (sd 8.748 vs
+   8.825). The standard deviation matches to within 1%, so the sample
+   distribution is essentially the same; the mean differs because a few stores
+   have different employment values in this data version (and the paper's 357
+   vs our 351 balanced stores). The Table 4 coefficients are unaffected; this is
+   the same data-version issue as items 1 and 3.
 
 ## Validation & limitations (report section)
 
