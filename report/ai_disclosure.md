@@ -31,8 +31,6 @@ what you personally did.*
 
 - [x] Ran every script (`python src/run_all.py`) and inspected each output
   against the published Table 2–4 and Figure 1 values.
-- [x] Read and understood each line of generated code before using it (the
-  variable definitions in `src/common.py`, the SE conventions in `src/table3.py`).
 - [x] Verified variable definitions against `01_DID/DATA_DICTIONARY.md` and the
   paper's table notes (e.g. FTE = (EMPFT + NMGRS) + 0.5·EMPPT).
 - [x] Manually recomputed key numbers — the 2.75 DID, the 85.5% NJ share at

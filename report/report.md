@@ -1,6 +1,6 @@
 # Card & Krueger (1994) — Replication and Extension
 
-*ECON6067 Individual Project — [Your name / student ID]*
+*ECON6067 Individual Project — LINYue 3036763232*
 
 ## Abstract
 
