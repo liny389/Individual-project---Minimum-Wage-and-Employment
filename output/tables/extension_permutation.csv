@@ -1,0 +1,2 @@
+observed_did,n_stores,n_nj,n_pa,n_permutations,p_value_two_sided,p_value_greater,p_value_less,null_mean,null_sd,seed
+2.75,384,309,75,10000,0.017,0.0096,0.9904,0.011215150809061464,1.153163608746302,20240401
