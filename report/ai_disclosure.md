@@ -1,10 +1,6 @@
 # AI-Use Disclosure
 
-*Complete this honestly as you finish the project. The rubric (5%) asks for
-three things: where/how AI was used, how AI output was checked, and important AI
-errors or suggestions that were corrected or rejected. The items below record
-how AI was used in this project; edit the "how I checked" section to reflect
-what you personally did.*
+
 
 ## 1. Where and how AI was used
 
