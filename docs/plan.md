@@ -1,7 +1,7 @@
 # Replication plan & target numbers
 
 Working notes for the Card & Krueger (1994) replication. "Target" numbers are
-the values printed in the published AER paper; our job is to reproduce them
+the values printed in the published AER paper; the goal is to reproduce them
 from `public.csv` and explain any differences (data coverage, sample
 restrictions, standard-error choice).
 
