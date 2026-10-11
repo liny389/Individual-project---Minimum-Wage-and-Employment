@@ -4,34 +4,34 @@
 
 ## 1. Where and how AI was used
 
-- [x] **Framing / understanding the paper and design** — an AI assistant helped
+-  **Framing / understanding the paper and design** — an AI assistant helped
   unpack the DID design, the FTE definition, the closure-adjustment rule, and the
   identification strategy, and drafted `docs/plan.md` with the target numbers
   from the published tables.
-- [x] **Data cleaning and variable construction** — the assistant wrote
+-  **Data cleaning and variable construction** — the assistant wrote
   `src/config.py` and `src/common.py` (FTE, wage gap, meal price, dummies,
   closure adjustment) and `src/build_sample.py`.
-- [x] **Writing analysis code** — the assistant drafted `src/table2.py`,
+-  **Writing analysis code** — the assistant drafted `src/table2.py`,
   `src/table3.py`, `src/table4.py`, `src/figure1.py`, and `src/extension.py`, plus
   the `src/run_all.py` orchestrator.
-- [x] **Generating figures/tables** — the assistant produced the Table 2–4 CSVs,
+-  **Generating figures/tables** — the assistant produced the Table 2–4 CSVs,
   Figure 1, and the permutation-distribution figure, choosing a colorblind-safe
   two-color palette.
-- [x] **Drafting / editing the report** — the assistant drafted `report/report.md`
+-  **Drafting / editing the report** — the assistant drafted `report/report.md`
   from the replication numbers and the extension results; I reviewed and edited it.
-- [x] **Debugging / interpreting results** — the assistant diagnosed several
+-  **Debugging / interpreting results** — the assistant diagnosed several
   mismatches against the paper (see Section 3) and the `statsmodels` import issue
   on Windows.
 
 ## 2. How AI-generated code, analysis, and writing were checked
 
-- [x] Ran every script (`python src/run_all.py`) and inspected each output
+-  Ran every script (`python src/run_all.py`) and inspected each output
   against the published Table 2–4 and Figure 1 values.
-- [x] Verified variable definitions against `01_DID/DATA_DICTIONARY.md` and the
+-  Verified variable definitions against `01_DID/DATA_DICTIONARY.md` and the
   paper's table notes (e.g. FTE = (EMPFT + NMGRS) + 0.5·EMPPT).
-- [x] Manually recomputed key numbers — the 2.75 DID, the 85.5% NJ share at
+-  Manually recomputed key numbers — the 2.75 DID, the 85.5% NJ share at
   $5.05, and the Table 4 coefficients — from the processed sample.
-- [x] Cross-checked standard errors and t-statistics against the paper (the
+-  Cross-checked standard errors and t-statistics against the paper (the
   balanced-sample t = 2.05 vs. the paper's 2.03).
 
 ## 3. Important AI errors or suggestions that I corrected or rejected
